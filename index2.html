@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-1</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 99vw;
+        }
+
+        #intro3, #intro4 {
+            background-color: rgb(93, 93, 93);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            white-space: nowrap;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .text_box2-1 {
+            font-size: 2rem;
+            background-color: white;
+            width: 80vw;
+            height: 20vh;
+            align-items: center;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+    top: 20vh; /* 원하는 상단 위치 조정 */
+    left: 50%; /* 가운데 정렬 */
+    transform: translateX(-50%); /* 가로로 완전 가운데 정렬 */
+
+        }
+
+        .alertbox2-1 {
+            width: 30vw;
+            height: 20vh;
+            font-size: 1.5rem;
+            text-align: center;
+            color: black;
+            background-color: white;
+            position: absolute;
+            top: -30vh;
+            opacity: 0; /* 처음에 숨김 */
+            transition: opacity 1s ease-in-out; /* opacity에 애니메이션을 적용 */
+        }
+    
+        input {
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="intro3" class="section">
+    <div class="text_box2-1" data-trigger>
+        <span class="text"></span>
+    </div>
+
+    <div class="alertbox2-1">
+        <p>배고픈 당신의 이름은?</p>
+        <input type="text" id="nameInput" placeholder="이름을 입력하세요" />
+        <button onclick="saveName()"> v </button>
+    </div>
+</div>
+
+<div id="intro4" class="section" style="display: none;">
+    <div onclick="nextIntro(5)" src="item.png"></div>
+
+    <div class="text_box2-1" data-trigger>
+        <span class="text2"></span>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const content = "추운 겨울, 길을 걷는...";
+    const text = document.querySelector(".text");
+    let i = 0;
+
+    function typing(content, target) {
+        let j = 0;
+        const interval = setInterval(function() {
+            if (j < content.length) {
+                target.innerHTML += content.charAt(j);
+                j++;
+            } else {
+                clearInterval(interval);
+            }
+        }, 100);
+    }
+
+    setTimeout(() => {
+        document.querySelector(".alertbox2-1").style.opacity = 1;
+    }, 1000);
+
+    // 입력한 이름을 로컬 스토리지에 저장하는 함수
+    function saveName() {
+        const nameInput = document.getElementById("nameInput").value;
+        if (nameInput) {
+            // 입력한 이름을 로컬 스토리지에 저장
+            localStorage.setItem("userName", nameInput);
+            // intro3 숨기기, intro4로 넘어가기
+            document.getElementById("intro3").style.display = "none";
+            document.getElementById("intro4").style.display = "block";
+            displayMessage();
+        } else {
+            alert("이름을 입력해주세요.");
+        }
+    }
+
+    // 로컬 스토리지에서 이름을 불러와서 메시지 출력
+    function displayMessage() {
+        const savedName = localStorage.getItem("userName");  // 로컬 스토리지에서 이름 가져오기
+        const content2 = `추운 겨울, 길을 걷는 ${savedName}은 오늘도 배고프다.`;
+        const text2 = document.querySelector(".text2");
+        typing(content2, text2); // typing 효과 적용
+    }
+
+    function nextIntro(introNumber) {
+        document.querySelectorAll('.section').forEach(section => section.style.display = 'none');
+        document.getElementById('intro' + introNumber).style.display = 'block';
+    }
+
+    // 페이지가 로드되면 첫 번째 메시지 타이핑 시작
+    typing(content, text);
+</script>
+
+</body>
+</html>

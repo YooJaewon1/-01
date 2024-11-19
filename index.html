@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test01</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class ="top">
+        <img src="icon/bgm2.png" alt="음악 버튼" class="bgmbutton" id="bgmButton">
+        <audio id="audioPlayer" src="mainbgm.mp3"></audio>
+    </div>
+
+    <div id="intro1" class="section" style="display: block;">
+        <h1> 
+            <span>나</span>
+            <span>만</span>
+            <span>의</span> <br>
+            <span id ="anitext">붕어빵</span>
+            <span>부</span>
+            <span>적</span>
+            <span>만</span>
+            <span>들</span>
+            <span>기</span>
+        </h1>
+        <button onclick="location.href='index2.html'" class="introButton" data-sound="intro1.mp3" data-duration="1000"> 간식 만나러 가기 </button>
+    </div>
+
+    <div id="intro2" class="section" style="display: none;">
+        <div onclick="nextIntro(3)" src="item.png"></div>
+    </div>
+
+    
+
+    <script type="text/javascript" src="sample.js"></script> 
+</body>
+</html>

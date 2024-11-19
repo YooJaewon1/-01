@@ -1,0 +1,143 @@
+@font-face{ font-family:'DNFBitBitv2';
+    font-style:normal;
+    font-weight:400;
+    src:url('https://cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')}
+@font-face{font-family : "Moneygraphy-Pixel"
+    src:url("fonts/Moneygraphy-Pixel.woff");
+    ;}
+@font-face { font-family: 'DOSSaemmul';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSSaemmul.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;}
+
+body {
+        width: 99vw;
+        height: 100%;
+        position: relative;
+    }
+
+.top {   position: absolute;
+    right: 1vw;
+z-index: 99;}
+
+#intro1 {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15vh;
+    color: white;
+    letter-spacing: -0.25rem;
+
+}
+#intro1 h1 {filter: contrast(150%) ;
+    height: 45vh;
+    font-family: 'DNFBitBitv2';
+    font-style: normal;
+    font-weight:400;
+    -webkit-text-stroke: 3px black;
+    text-shadow: 
+    2px 2px 0px black, /* 우측 하단 */
+    -2px -2px 0px black, /* 좌측 상단 */
+    2px -2px 0px black, /* 우측 상단 */
+    -2px 2px 0px black, /* 좌측 하단 */
+    0px 0px 0px black,  /* 상단 */
+    0px 8px 0px black, /* 하단 */
+    2px 0px 0px black,  /* 오른쪽 */
+    -2px 0px 0px black; /* 왼쪽 */
+
+}
+#intro1 h1 span {
+    font-family: 'DNFBitBitv2';
+    font-size: 6rem;
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    /*  폰트가 부드러워지게 설정  */
+    -webkit-font-smoothing: antialiased;
+    /*  x축, y축, 블러 설정  */
+    
+    animation: bounce 0.35s ease 9 forwards alternate;
+}
+#intro1 h1 span:nth-child(2){animation-delay: 0.15s;}
+#intro1 h1 span:nth-child(3){animation-delay: 0.45s;}
+#intro1 h1 span:nth-child(4){animation-delay: 0.65s;}
+#intro1 h1 span:nth-child(5){animation-delay: 0.85s;}
+#intro1 h1 span:nth-child(6){animation-delay: 1.05s;}
+#intro1 h1 span:nth-child(7){animation-delay: 1.25s;}
+#intro1 h1 span:nth-child(8){animation-delay: 1.45s;}
+#intro1 h1 span:nth-child(9){animation-delay: 1.65s;}
+#intro1 h1 span:nth-child(10){animation-delay: 1.85s;}
+  
+@keyframes bounce {
+    100% {
+        top: -20px;
+        
+    }
+}
+
+#anitext {
+    font-size: 48px;
+    transition: all 0.5s ease-in-out; /* 텍스트 변화에 부드러운 애니메이션 추가 */
+    
+  }
+
+  .hidden { opacity: 0;
+  }
+
+.introButton {
+    font-family: "DOSSaemmul";
+    font-size: 1.5rem;
+}
+
+
+#intro3, #intro4 {
+    background-color: rgb(93, 93, 93);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
+    position: relative;
+    margin: 0 auto;
+}
+
+.text_box2-1 {
+    font-size: 2rem;
+    background-color: white;
+    width: 80vw;
+    height: 20vh;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+top: 20vh; /* 원하는 상단 위치 조정 */
+left: 50%; /* 가운데 정렬 */
+transform: translateX(-50%); /* 가로로 완전 가운데 정렬 */
+
+}
+
+.alertbox2-1 {
+    width: 30vw;
+    height: 20vh;
+    font-size: 1.5rem;
+    text-align: center;
+    color: black;
+    background-color: white;
+    position: absolute;
+    top: -30vh;
+    opacity: 0; /* 처음에 숨김 */
+    transition: opacity 1s ease-in-out; /* opacity에 애니메이션을 적용 */
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
